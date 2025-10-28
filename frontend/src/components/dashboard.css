@@ -1,0 +1,83 @@
+/* Container */
+.dashboard-container {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #003366, #0055a5);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Header */
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.dashboard-buttons .btn {
+  background-color: #f1c232;
+  color: #003366;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.dashboard-buttons .btn:hover {
+  background-color: #ffdd57;
+  transform: scale(1.05);
+}
+
+/* Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+/* Cards */
+.dashboard-card {
+  background: white;
+  color: #003366;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h2 {
+  margin-bottom: 10px;
+  color: #002850;
+}
+
+.dashboard-card p {
+  font-size: 0.95rem;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Role Colors */
+.student:hover {
+  border-top: 5px solid #2ecc71;
+}
+
+.lecturer:hover {
+  border-top: 5px solid #3498db;
+}
+
+.admin:hover {
+  border-top: 5px solid #e74c3c;
+}

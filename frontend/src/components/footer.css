@@ -1,0 +1,22 @@
+.simple-footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  margin-top: 40px;
+}
+
+.simple-footer p {
+  margin: 0;
+}
+
+.simple-footer a {
+  color: #f1c232;
+  text-decoration: none;
+}
+
+.simple-footer a:hover {
+  text-decoration: underline;
+}
