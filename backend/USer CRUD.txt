@@ -1,0 +1,25 @@
+C:\Users\LENONG>curl http://localhost:5000/api/users
+{"status":"success","users":[{"id":1,"username":"Lenong","email":"lenong@example.com","role":"student","createdAt":"2025-10-28T20:30:05.061Z","updatedAt":"2025-10-28T20:30:05.061Z"},{"id":2,"username":"DrSmith","email":"drsmith@example.com","role":"lecturer","createdAt":"2025-10-28T20:34:54.049Z","updatedAt":"2025-10-28T20:34:54.049Z"}]}
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X PUT http://localhost:5000/api/users/1 -H "Content-Type: application/json" -d "{\"username\":\"LenongUpdated\",\"role\":\"student\"}"
+{"status":"success","user":{"id":1,"username":"LenongUpdated","email":"lenong@example.com","role":"student","createdAt":"2025-10-28T20:30:05.061Z","updatedAt":"2025-10-28T20:56:38.258Z"}}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X POST http://localhost:5000/api/users -H "Content-Type: application/json" -d "{\"username\":\"Alice\",\"email\":\"alice@example.com\",\"password\":\"alice123\",\"role\":\"student\"}"
+{"message":"All fields are required"}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X POST http://localhost:5000/api/users -H "Content-Type: application/json" -d "{\"username\":\"Alice\",\"email\":\"alice@example.com\",\"password\":\"alice123\",\"passwordConfirm\":\"alice123\",\"role\":\"student\"}"
+{"status":"success","user":{"id":3,"username":"Alice","email":"alice@example.com","role":"student","updatedAt":"2025-10-28T20:58:19.323Z","createdAt":"2025-10-28T20:58:19.323Z"}}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl http://localhost:5000/api/users
+{"status":"success","users":[{"id":2,"username":"DrSmith","email":"drsmith@example.com","role":"lecturer","createdAt":"2025-10-28T20:34:54.049Z","updatedAt":"2025-10-28T20:34:54.049Z"},{"id":1,"username":"LenongUpdated","email":"lenong@example.com","role":"student","createdAt":"2025-10-28T20:30:05.061Z","updatedAt":"2025-10-28T20:56:38.258Z"},{"id":3,"username":"Alice","email":"alice@example.com","role":"student","createdAt":"2025-10-28T20:58:19.323Z","updatedAt":"2025-10-28T20:58:19.323Z"}]}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl http://localhost:5000/api/users
+{"status":"success","users":[{"id":2,"username":"DrSmith","email":"drsmith@example.com","role":"lecturer","createdAt":"2025-10-28T20:34:54.049Z","updatedAt":"2025-10-28T20:34:54.049Z"},{"id":1,"username":"LenongUpdated","email":"lenong@example.com","role":"student","createdAt":"2025-10-28T20:30:05.061Z","updatedAt":"2025-10-28T20:56:38.258Z"},{"id":3,"username":"Alice","email":"alice@example.com","role":"student","createdAt":"2025-10-28T20:58:19.323Z","updatedAt":"2025-10-28T20:58:19.323Z"}]}
+C:\Users\LENONG>
+

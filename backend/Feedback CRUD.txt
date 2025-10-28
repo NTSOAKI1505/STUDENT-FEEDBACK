@@ -1,0 +1,15 @@
+C:\Users\LENONG>curl -X POST http://localhost:5000/api/feedbacks -H "Content-Type: application/json" -d "{\"studentName\":\"Lenong\",\"courseCode\":\"IT101\",\"comments\":\"Great course!\",\"rating\":5,\"createdBy\":\"Lenong\"}"
+{"status":"success","feedback":{"id":1,"studentName":"Lenong","courseCode":"IT101","comments":"Great course!","rating":5,"updatedAt":"2025-10-28T21:31:17.178Z","createdAt":"2025-10-28T21:31:17.178Z"}}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X PUT http://localhost:5000/api/feedbacks/1 -H "Content-Type: application/json" -d "{\"comments\":\"Updated comment\",\"rating\":4,\"updatedBy\":\"Lenong\"}"
+{"status":"success","feedback":{"id":1,"studentName":"Lenong","courseCode":"IT101","comments":"Updated comment","rating":4,"createdAt":"2025-10-28T21:31:17.178Z","updatedAt":"2025-10-28T21:31:57.468Z"}}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl http://localhost:5000/api/feedbacks
+{"status":"success","feedbacks":[{"id":1,"studentName":"Lenong","courseCode":"IT101","comments":"Updated comment","rating":4,"createdAt":"2025-10-28T21:31:17.178Z","updatedAt":"2025-10-28T21:31:57.468Z"}]}
+C:\Users\LENONG>
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X DELETE http://localhost:5000/api/feedbacks/1
+{"status":"success","message":"Feedback deleted successfully"}
+C:\Users\LENONG>
