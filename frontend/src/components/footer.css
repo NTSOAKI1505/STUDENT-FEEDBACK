@@ -1,22 +1,39 @@
-.simple-footer {
-  background-color: #003366;
-  color: white;
+.app-footer {
+  background-color:  rgb(86, 137, 214);;       /* Dark background to match navbar */
+  color: #e2e8f0;                  /* Light text for contrast */
+  padding: 15px 20px;
   text-align: center;
-  padding: 15px 0;
-  font-size: 0.95rem;
-  font-family: "Poppins", sans-serif;
-  margin-top: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-top: 1px solid #2d3748;
+  width: 95%;                      /* Slightly smaller so corners show */
+  margin: 0 auto 20px;             /* Centered with spacing at bottom */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 15px;             /* Rounded edges */
 }
 
-.simple-footer p {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.footer-content p {
   margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.simple-footer a {
-  color: #f1c232;
-  text-decoration: none;
+.footer-content strong {
+  color: #63b3ed; /* Accent color for brand */
+  font-weight: 600;
 }
 
-.simple-footer a:hover {
-  text-decoration: underline;
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+  }
 }

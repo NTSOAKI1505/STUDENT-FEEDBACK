@@ -1,41 +1,183 @@
-.navbar {
+.navbar-modern {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #0a1f44, #1a3a6e, #ffd700); /* same as footer */
-  color: white;
-  padding: 15px 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px; /* added rounded edges */
+  justify-content: space-between;
+  background-color: rgb(86, 137, 214);
+  padding: 12px 24px;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #2d3748;
+  border-radius: 12px;
+  width: 95%;
+  margin: 10px auto;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
-/* Optional: slightly increase padding or margin for rounded effect on page */
-.navbar-container {
-  margin: 10px; /* space around the navbar */
-  width: calc(100% - 20px); /* fit nicely with margins */
+/* ✅ Left: Logo + Brand Text */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
 }
 
 .navbar-logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.brand-text {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #ffffff;
   letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.navbar-links {
-  list-style: none;
+/* Center navigation links */
+.navbar-center {
   display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+  gap: 18px;
 }
 
-.navbar-links li a {
-  color: white;
-  text-decoration: none;
+.navbar-center.open {
+  display: flex;
+  flex-direction: column;
+  background-color: #2d3748;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Links */
+.nav-link {
+  background: none;
+  border: none;
+  color: #f0f4f8;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  background-color: #63b3ed;
+  color: #1a202c;
+}
+
+/* Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+
+/* Profile */
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.avatar {
+  background-color: #63b3ed;
+  color: #1a202c;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.2;
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  letter-spacing: 0.5px;
+}
+
+/* Profile dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.profile-dropdown button {
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  cursor: pointer;
+  text-align: left;
   font-weight: 500;
-  transition: color 0.3s;
+  font-size: 0.95rem;
 }
 
-.navbar-links li a:hover {
-  color: #ffd700; /* gold highlight on hover */
+.profile-dropdown button:hover {
+  background-color: #63b3ed;
+  color: #1a202c;
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-center {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Optional: hide brand text on small screens */
+  .brand-text {
+    display: none;
+  }
 }

@@ -1,64 +1,77 @@
-// src/components/Signup.js
 import React, { useState } from "react";
-import { loginUser } from "../utils/auth";
-import { signupUser } from "../utils/auth";
-
+import { useNavigate, Link } from "react-router-dom";
+import { signup } from "../services/api";
+import { saveAuth } from "../utils/auth";
 import "./signup.css";
+import Logo from "./assets/logo.png";
 
-const Signup = () => {
+function Signup() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    username: "", email: "", password: "", passwordConfirm: "", role: "student"
   });
-
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const roles = ["student", "lecturer"];
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleNavigation = (role) => {
+    switch (role) {
+      case "student": navigate("/student"); break;
+      case "lecturer": navigate("/lecturer"); break;
+      case "program_leader": navigate("/leader"); break;
+      case "principal_lecturer": navigate("/principal"); break;
+      default: navigate("/home");
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.password) {
-      setError("Please fill in all fields.");
-      return;
-    }
     setError("");
-    // Add your signup logic here (API call)
-    console.log("Signing up with:", formData);
+    setLoading(true);
+
+    try {
+      const data = await signup(formData);
+      if (data.token && data.user) {
+        saveAuth(data);
+        handleNavigation(data.user.role);
+      } else {
+        setError("Signup failed. Please check your details.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Server error. Signup failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="auth-container">
-      <h2>Signup</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Signup</button>
-      </form>
+    <div className="signup-wrapper">
+      <div className="signup-container">
+        {/* Logo at the top */}
+        <div className="signup-logo">
+          <img src={Logo} alt="App Logo" />
+        </div>
+
+        <h2>Create an Account</h2>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="username" placeholder="Full Names" value={formData.username} onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+          <input type="password" name="passwordConfirm" placeholder="Confirm Password" value={formData.passwordConfirm} onChange={handleChange} required />
+          <select name="role" value={formData.role} onChange={handleChange} required>
+            {roles.map(r => <option key={r} value={r}>{r.replace("_", " ").toUpperCase()}</option>)}
+          </select>
+          <button type="submit" disabled={loading}>{loading ? "Signing up..." : "Sign Up"}</button>
+        </form>
+        <p className="login-link">Already have an account? <Link to="/login">Login here</Link></p>
+      </div>
     </div>
   );
-};
+}
 
 export default Signup;
