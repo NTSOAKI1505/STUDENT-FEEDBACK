@@ -1,0 +1,7 @@
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X POST http://localhost:5000/api/auth/signup -H "Content-Type: application/json" -d "{\"username\":\"DrSmith\",\"email\":\"drsmith@example.com\",\"password\":\"secure123\",\"passwordConfirm\":\"secure123\",\"role\":\"lecturer\"}"
+{"status":"success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImxlY3R1cmVyIiwiaWF0IjoxNzYxNjgzNjk0LCJleHAiOjE3NjIyODg0OTR9.h8x2Ys2_IRBz1M2-8cc8xeX_H0u765Y89XlNJl-ih44","user":{"id":2,"username":"DrSmith","email":"drsmith@example.com","role":"lecturer"}}
+C:\Users\LENONG>
+C:\Users\LENONG>curl -X POST http://localhost:5000/api/auth/login -H "Content-Type: application/json" -d "{\"email\":\"drsmith@example.com\",\"password\":\"secure123\"}"
+{"status":"success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImxlY3R1cmVyIiwiaWF0IjoxNzYxNjgzNzg0LCJleHAiOjE3NjIyODg1ODR9.cy4UB_rmN2DVNs9hn3SedCjrhzukkaFNgUmtf6LGDNs","user":{"id":2,"username":"DrSmith","email":"drsmith@example.com","role":"lecturer"}}
+C:\Users\LENONG>
