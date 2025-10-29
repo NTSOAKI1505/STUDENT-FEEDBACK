@@ -7,7 +7,7 @@ export const saveAuth = (data) => {
   localStorage.setItem("role", data.user.role);
   localStorage.setItem("user", JSON.stringify(data.user));
   localStorage.setItem("lastActivity", lastActivity);
-};
+  };
 
 // Clear auth info
 export const clearAuth = () => {
